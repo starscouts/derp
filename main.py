@@ -50,10 +50,7 @@ def get_thumbnail(image_url, censor, resolution, target_post):
     thumb = ImageEnhance.Brightness(thumb).enhance(0.5)
 
     if censor:
-        image.filter(ImageFilter.GaussianBlur(40))
-
-    #image = ImageOps.pad(image, config.resolution, color=(0, 0, 0, 0))
-    #thumb.paste(image, (0, 0), image)
+        image = image.filter(ImageFilter.GaussianBlur(40))
 
     image = ImageOps.contain(image, resolution)
     thumb.paste(image, ((resolution[0] - image.size[0]) // 2, 0))
@@ -86,14 +83,14 @@ def get_notify_data(target_post, thumb_res, trigger_tags):
     height = target_post["height"]
     tags = target_post["tags"]
     censor_tags = get_censored_tags(set(tags), trigger_tags)
-    artists = get_artists(tags)
+    censor = "safe" not in tags
 
+    artists = get_artists(tags)
     prefix = get_prefix(censor_tags)
     description = get_description(target_post)
 
     title = f"#{post_id} - by {artists}"
     message = f"{prefix} - {width}x{height}"
-    censor = len(censor_tags) > 0
 
     if description:
         message += f" - {description}"
