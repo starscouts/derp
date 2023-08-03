@@ -27,6 +27,9 @@ def get_artists(tags):
 
 
 def format_artists(artists):
+    if len(artists) == 0:
+        return "Anonymous artist"
+
     if len(artists) == 1:
         return artists[0]
 
