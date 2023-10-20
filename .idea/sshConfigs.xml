@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="bridlewood" id="e9f73cd3-7417-4fd4-8d41-60d981f6f863" port="22" nameFormat="DESCRIPTIVE" username="fedora" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

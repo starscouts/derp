@@ -13,7 +13,7 @@ triggers = {"explicit", "suggestive", "grimdark", "semi-grimdark", "grotesque", 
 # ---------------------------
 # The query to send to Derpibooru when looking for new images
 
-query = "my:watched"
+query = "my:watched, created_at.lte:30 minutes ago"
 
 # ---------------------------
 # If you want to use a Derpibooru filter when fetching images, enter its ID here
