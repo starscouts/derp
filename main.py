@@ -108,7 +108,8 @@ def get_notify_data(target_post, thumb_res, trigger_tags):
 def send_notification(notify_data, auth):
     requests.post(NOTIFY_ENDPOINT, data=notify_data["thumb"].getvalue() if notify_data["thumb"] else None,
                   headers={"Authorization": f"Basic {auth}", "User-Agent": "Mozilla/5.0 (+Derp/0.0)",
-                           "Tags": "derpibooru", "Title": notify_data["title"].encode("utf-8"),
+                           "Tags": "derpibooru", "Priority": "min",
+                           "Title": notify_data["title"].encode("utf-8"),
                            "Message": notify_data["message"].encode("utf-8"),
                            "Click": notify_data["click"].encode("utf-8"),
                            "Icon": "https://derpicdn.net/img/view/2020/7/23/2406370.png"})
